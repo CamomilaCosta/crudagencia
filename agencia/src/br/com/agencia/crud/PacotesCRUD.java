@@ -25,7 +25,6 @@ public class PacotesCRUD {
 		LocalDate data_ida, data_volta;
 		Date data_ida2, data_volta2;
 		
-		Float preco = 0f;
 		
 		do {
 			System.out.println("\n==================PACOTES====================\n");
@@ -95,7 +94,7 @@ public class PacotesCRUD {
 				Voos vooVolta = voosDAO.readByID(id_voo_volta);
 				Hoteis hotel = hoteisDAO.readByID(id_hotel);
 				
-				Pacotes pacote = new Pacotes( destino_pacote, origem_pacote, data_ida2, data_volta2, vooIda, vooVolta, hotel);
+				Pacotes pacote = new Pacotes(destino_pacote, origem_pacote, data_ida2, data_volta2, vooIda, vooVolta, hotel);
 				
 				pacoteDAO.create(pacote);
 				break;
@@ -109,55 +108,29 @@ public class PacotesCRUD {
 				break;
 			case 3: 
 				
-				/*System.out.println("Digite o id do pacote que deseja atualizar: ");
+				System.out.println("Digite o id do pacote que deseja atualizar: ");
 				id = scanner.nextInt();
 				scanner.nextLine();
 				
-				do {
-					System.out.println("Escolha a empresa atualizada: ");
-					System.out.println("1 - LATAM");
-					System.out.println("2 - Gol");
-					System.out.println("3 - Azul");
-					opt_empresa = scanner.nextInt();
-					scanner.nextLine();
-					
-					switch(opt_empresa) {
-					case 1:
-					empresa = "LATAM";
-						break;
-					case 2:
-						empresa = "Gol";
-						break;
-					case 3: 
-						empresa = "Azul";
-						break;
-					default:
-						System.out.println("Opção inválida");
-					break;
-					}
-				} while(opt_empresa != 1 && opt_empresa != 2 && opt_empresa != 3);
+				System.out.println("Digite o id do voo de ida: ");
+				id_voo_ida = scanner.nextInt();
+				scanner.nextLine();
 				
+				System.out.println("Digite o id do voo de volta: ");
+				id_voo_volta = scanner.nextInt();
+				scanner.nextLine();
 				
+				System.out.println("Digite o id do hotel: ");
+				id_hotel = scanner.nextInt();
+				scanner.nextLine();
 				
-				System.out.println("Digite a cidade de origem do pacote: ");
-				cidade_origem = scanner.nextLine();
+				System.out.println("Digite o destino do pacote: ");
+				destino_pacote = scanner.nextLine();
 				
-				System.out.println("Digite a cidade de destino do pacote: ");
-				cidade_destino = scanner.nextLine();
+				System.out.println("Digite a origem do pacote: ");
+				origem_pacote = scanner.nextLine();
 				
-				System.out.println("Digite o aeroporto de origem: ");
-				aeroporto_decolagem = scanner.nextLine();
-				
-				System.out.println("Digite o aeroporto de destino: ");
-				aeroporto_pouso = scanner.nextLine();
-				
-				System.out.println("Digite a hora de decolagem: ");
-				hora_decolagem = scanner.nextLine();
-				
-				System.out.println("Digite a hora de pouso: ");
-				hora_pouso = scanner.nextLine();
-				
-				System.out.println("Digite a data de saída: ");
+				System.out.println("Digite a data de ida: ");
 				System.out.println("Dia: ");
 				dia = scanner.nextInt();
 				scanner.nextLine();
@@ -170,10 +143,10 @@ public class PacotesCRUD {
 				ano = scanner.nextInt();
 				scanner.nextLine();
 				
-				dia_decolagem = LocalDate.of(ano, mes, dia);
-				dia_decolagem2 = Date.valueOf(dia_decolagem);
+				data_ida = LocalDate.of(ano, mes, dia);
+				data_ida2 = Date.valueOf(data_ida);
 				
-				System.out.println("Digite a data de chegada: ");
+				System.out.println("Digite a data de volta: ");
 				System.out.println("Dia: ");
 				dia = scanner.nextInt();
 				scanner.nextLine();
@@ -186,33 +159,34 @@ public class PacotesCRUD {
 				ano = scanner.nextInt();
 				scanner.nextLine();
 				
-				dia_pouso = LocalDate.of(ano, mes, dia);
-				dia_pouso2 = Date.valueOf(dia_pouso);
+				data_volta = LocalDate.of(ano, mes, dia);
+				data_volta2 = Date.valueOf(data_volta);
 				
-				System.out.println("Digite o preço da passagem: ");
-				preco = scanner.nextFloat();
-				scanner.nextLine();
+				Voos vooIdaUp = voosDAO.readByID(id_voo_ida);
+				Voos vooVoltaUp = voosDAO.readByID(id_voo_volta);
+				Hoteis hotelUp = hoteisDAO.readByID(id_hotel);
+			
 				
-				Pacotes pacote2 = new Pacotes(id, empresa, cidade_origem, cidade_destino, aeroporto_decolagem,
-						aeroporto_pouso, hora_decolagem, hora_pouso, dia_decolagem2, dia_pouso2, preco);
+				Pacotes pacote2 = new Pacotes(id, destino_pacote, origem_pacote, data_ida2,
+						data_volta2, vooIdaUp, vooVoltaUp, hotelUp);
 				
-				pacoteDAO.update(pacote2);*/
+				pacoteDAO.update(pacote2);
 				break;
 			case 4:
-				/*System.out.println("Digite o id do pacote que deseja excluir: ");
+				System.out.println("Digite o id do pacote que deseja excluir: ");
 				id = scanner.nextInt();
 				scanner.nextLine();
 				
-				pacoteDAO.delete(id);*/
+				pacoteDAO.delete(id);
 				
 				break;
 			case 5:
-				/*System.out.println("Digite o id do pacote que deseja procurar ");
+				System.out.println("Digite o id do pacote que deseja procurar ");
 				id = scanner.nextInt();
 				scanner.nextLine();
 				
 				Pacotes pacote3 = pacoteDAO.readByID(id);
-				System.out.println(pacote3.toString());*/
+				System.out.println(pacote3.toString());
 				
 				break;
 			default:

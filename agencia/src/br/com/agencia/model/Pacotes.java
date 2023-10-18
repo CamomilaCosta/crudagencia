@@ -50,6 +50,20 @@ public class Pacotes {
 		this.voo_volta = voo_volta;
 		this.hotel = hotel;
 	}
+	
+	
+
+	public Pacotes(int id, String destino, String origem, Date data_ida, Date data_volta, Voos voo_ida,
+			Voos voo_volta, Hoteis hotel) {
+		this.id = id;
+		this.destino = destino;
+		this.origem = origem;
+		this.data_ida = data_ida;
+		this.data_volta = data_volta;
+		this.voo_ida = voo_ida;
+		this.voo_volta = voo_volta;
+		this.hotel = hotel;
+	}
 
 	public Pacotes() {
 	}

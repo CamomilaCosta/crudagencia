@@ -53,6 +53,7 @@ public class VoosCRUD {
 						break;
 					case 3: 
 						empresa = "Azul";
+						break;
 					default:
 						System.out.println("Opção inválida");
 					break;

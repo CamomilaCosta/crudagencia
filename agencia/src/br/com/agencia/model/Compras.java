@@ -12,7 +12,7 @@ public class Compras {
 	Clientes cliente;
 	Pacotes pacote;
 	
-	protected Compras(int id, Date data_compra, float valor_total, String tipo_pagamento, int parcelas,
+	public Compras(int id, Date data_compra, float valor_total, String tipo_pagamento, int parcelas,
 			Clientes cliente, Pacotes pacote) {
 		this.id = id;
 		this.data_compra = data_compra;
@@ -23,17 +23,26 @@ public class Compras {
 		this.pacote = pacote;
 	}
 	
-	protected Compras(Date data_compra, float valor_total, String tipo_pagamento, int parcelas, Clientes cliente,
+	public Compras(Date data_compra, String tipo_pagamento, int parcelas, Clientes cliente,
 			Pacotes pacote) {
 		this.data_compra = data_compra;
-		this.valor_total = valor_total;
+		this.tipo_pagamento = tipo_pagamento;
+		this.parcelas = parcelas;
+		this.cliente = cliente;
+		this.pacote = pacote;
+	}
+	
+
+	public Compras(int id, Date data_compra, String tipo_pagamento, int parcelas, Clientes cliente, Pacotes pacote) {
+		this.id = id;
+		this.data_compra = data_compra;
 		this.tipo_pagamento = tipo_pagamento;
 		this.parcelas = parcelas;
 		this.cliente = cliente;
 		this.pacote = pacote;
 	}
 
-	protected Compras() {
+	public Compras() {
 	}
 
 	public int getId() {
@@ -95,8 +104,8 @@ public class Compras {
 	@Override
 	public String toString() {
 		return "Compra: id = " + id + ", data da compra = " + data_compra + ", valor total = " + valor_total
-				+ ", tipo de pagamento=" + tipo_pagamento + ", quantidade de parcelas = " + parcelas + ", cliente = " + cliente + ", pacote = "
-				+ pacote + ";";
+				+ ", tipo de pagamento=" + tipo_pagamento + ", quantidade de parcelas = " + parcelas + ";\n cliente = " + cliente + ";\n pacote = "
+				+pacote + ";";
 	}
 	
 	
